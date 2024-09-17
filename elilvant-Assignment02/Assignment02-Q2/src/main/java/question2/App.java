@@ -9,16 +9,13 @@ package question2;
 import java.util.Scanner;
 
 public class App extends Object {
-    private static class Divide extends Object {
-	
-    } // end of Divide class
-
+    
     public static void main(String[] args) {
         Scanner userInput = new Scanner(System.in);
 
 	System.out.println("Enter integer: ");
 	int number = userInput.nextInt();
-
-    } // end of main method
+	
+	    } // end of main method
 
 } // end of App class
