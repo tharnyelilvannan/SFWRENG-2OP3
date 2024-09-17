@@ -20,4 +20,5 @@ public class App {
 	System.out.println("Enter decimal number: ");
 	int decimal = userInput.nextInt(); 
     } // end of main method
+
 } // end of App class
