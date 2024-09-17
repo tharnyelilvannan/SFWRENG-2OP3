@@ -5,8 +5,20 @@ package question2;
  * Last Updated: September 17, 2024
  * Purpose: Prints integer numbers divisible by 3, 5, or both
  */
-public class App {
+
+import java.util.Scanner;
+
+public class App extends Object {
+    private static class Divide extends Object {
+	
+    } // end of Divide class
+
     public static void main(String[] args) {
-        System.out.println("Hello World!");
-    }
-}
+        Scanner userInput = new Scanner(System.in);
+
+	System.out.println("Enter integer: ");
+	int number = userInput.nextInt();
+
+    } // end of main method
+
+} // end of App class
