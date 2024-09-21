@@ -37,7 +37,7 @@ class Divide {
 
     // prints numbers divisible by 3
     private static void divideByThree(int number) {
-	int i = 1;
+	int i = 1; // counter variable
 	String byThree = "";
 
 	System.out.print("Divided by 3 ->");
