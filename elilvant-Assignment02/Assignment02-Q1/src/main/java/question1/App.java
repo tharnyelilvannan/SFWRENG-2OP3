@@ -12,42 +12,61 @@ public class App {
     public static void main(String[] args) {
         Scanner userInput = new Scanner(System.in);
 
-	System.out.println("Enter integer: ");
-	int number = userInput.nextInt();
+		System.out.print("Enter integer: ");
+		int number = userInput.nextInt();
 	
-	Octal d = new Octal();
-	d.Octal(number);
-	System.out.println("Octal: ");
-	System.out.print(Integer.toString(d.getOctal()));
+		Octal d = new Octal();
+		System.out.print("Octal: ");
+		System.out.println(Integer.toString(d.getOctal(number)));
 
     } // end of main method
 
 } // end of App class
 
 class Octal {
-	private int octal = 0;
 
-	public static void Octal(int decimal) {
-		int remainder = decimal % 8;
-	    int quotient = decimal / 8;
-	    String octal = "";
+	// converts decimal to octal
+	private static int Octal(int decimal) {
+
+		// ensures decimal value is positive
+		int decimalPositive = decimal;
+		if (decimal < 0){
+			decimalPositive = decimal * -1;
+		}
+
+		int remainder = decimalPositive % 8;
+	    int quotient = decimalPositive / 8;
+	    String octalStr = "";
 		String remainderStr = "";
-		
-		if (decimal <= 8 & decimal >= -8) {
-			octal = String.valueOf(decimal);
+		int octal = 0;
+
+		if (decimal < 8 & decimal > -8) { // decimal and octal value would be the same 
+			octalStr = String.valueOf(decimal);
 		}
 		else {
-			while (remainder != 0) {
-				remainderStr = String.valueOf(remainder);
-				octal = remainderStr + octal;
-				System.out.println(octal);
+			remainderStr = String.valueOf(remainder);
+			octalStr = remainderStr + octalStr;
+
+			while (quotient != 0) {
 				remainder = quotient % 8;
-				quotient = quotient /8;
+				quotient = quotient / 8;
+				remainderStr = String.valueOf(remainder);
+				octalStr = remainderStr + octalStr;
 			} // end of while
+
+			if (decimal < 0) { // if decimal value was negative, then add negative sign
+				octalStr = "-" + octalStr;
+			} // end of if statement
 		} // end of if/else statement
+
+		octal = Integer.parseInt(octalStr);
+		return octal;
+
 	} // end of Octal method
 	
-	public int getOctal() {
+	// calls Octal method and returns converted value
+	public int getOctal(int decimal) {
+		int octal = Octal(decimal);
 	    return octal;
 	} // end of getOctal method
 
