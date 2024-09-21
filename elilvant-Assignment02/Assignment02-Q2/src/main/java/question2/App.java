@@ -37,7 +37,7 @@ class Divide {
 
     // prints numbers divisible by 3
     private static void divideByThree(int number) {
-	int i = 1; // counter variable
+	int counter = 1;
 	String byThree = "";
 
 	System.out.print("Divided by 3 ->");
@@ -47,12 +47,12 @@ class Divide {
 	    System.out.println(" None.");
         }
 	else {
-	    while (i <= number) {
-	        if ((i % 3) == 0) {
-		    byThree = byThree + " " + Integer.toString(i) + ",";
+	    while (counter <= number) {
+	        if ((counter % 3) == 0) {
+		    byThree = byThree + " " + Integer.toString(counter) + ",";
 	        } // end of if statements
 	    
-	        i = i +1;
+	        counter = counter +1;
 	    } // end of while
 
 		// formats output 
@@ -68,7 +68,7 @@ class Divide {
 
     // divides by 5
     private static void divideByFive(int number) {
-	int i = 1;
+	int counter = 1;
 	String byFive = "";
 
 	System.out.print("Divided by 5 ->");
@@ -78,12 +78,12 @@ class Divide {
 	    System.out.println(" None.");
 	}
 	else {
-	    while (i <= number) {
-	        if ((i % 5) == 0) {
-		    byFive = byFive + " " + Integer.toString(i) + ",";
+	    while (counter <= number) {
+	        if ((counter % 5) == 0) {
+		    byFive = byFive + " " + Integer.toString(counter) + ",";
 	        } // end of if statement
 	    
-	        i = i +1;
+	        counter = counter +1;
 	    } // end of while
 
 		// formats output
@@ -99,7 +99,7 @@ class Divide {
 
     // prints numbers divisible by both 3 and 5
     private static void divideByBoth(int number) {
-	int i = 1;
+	int counter = 1;
 	String byBoth = "";
 	
 	System.out.print("Divided by 3 and 5 ->");
@@ -109,12 +109,12 @@ class Divide {
 	    System.out.println(" None.");
 	}
 	else {
-	    while (i <= number) {
-	        if ((i% 5 == 0) & (i % 3 == 0)) {
-	            byBoth = byBoth + " " + Integer.toString(i) + ",";
+	    while (counter <= number) {
+	        if ((counter % 5 == 0) & (counter % 3 == 0)) {
+	            byBoth = byBoth + " " + Integer.toString(counter) + ",";
 	        } // end of if statement
 	    
-	        i = i + 1;
+	        counter = counter + 1;
 	    } // end of while
 	
 	    // formats output

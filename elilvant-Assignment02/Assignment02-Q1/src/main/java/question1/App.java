@@ -48,14 +48,18 @@ class Octal {
 			octalStr = remainderStr + octalStr;
 
 			while (quotient != 0) {
+
 				remainder = quotient % 8;
 				quotient = quotient / 8;
 				remainderStr = String.valueOf(remainder);
 				octalStr = remainderStr + octalStr;
+
 			} // end of while
 
 			if (decimal < 0) { // if decimal value was negative, then add negative sign
+
 				octalStr = "-" + octalStr;
+				
 			} // end of if statement
 		} // end of if/else statement
 
@@ -66,8 +70,10 @@ class Octal {
 	
 	// calls Octal method and returns converted value
 	public int getOctal(int decimal) {
+
 		int octal = Octal(decimal);
 	    return octal;
+
 	} // end of getOctal method
 
 } // end of Octal class

@@ -29,14 +29,14 @@ class Triangle {
 
     // prints numbers in a triangle
     public static void Triangle(int number) {
-	int i = 1;
+	int counter = 1;
 	String triangle = "";
 	
 	// determines next number in triangle
-	while (i <= number) {
-	    triangle = triangle + Integer.toString(i);
+	while (counter <= number) {
+	    triangle = triangle + Integer.toString(counter);
 	    System.out.println(triangle);
-	    i = i + 1;
+	    counter = counter + 1;
 
 	} // end of while
 
