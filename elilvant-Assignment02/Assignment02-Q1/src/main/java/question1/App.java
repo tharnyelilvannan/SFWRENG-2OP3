@@ -2,7 +2,7 @@ package question1;
 
 /**
  * Author: Tharny Elilvannan
- * Last Updated: September 21, 2024
+ * Last Updated: September 24, 2024
  * Purpose: Converts a decimal to an octal number. 
  */
 
