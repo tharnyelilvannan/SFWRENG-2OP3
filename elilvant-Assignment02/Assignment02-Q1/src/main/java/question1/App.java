@@ -15,18 +15,19 @@ public class App {
 		System.out.print("Enter integer: ");
 		int number = userInput.nextInt();
 	
-		Octal d = new Octal();
+		Octal d = new Octal(number);
 		System.out.print("Octal: ");
-		System.out.println(Integer.toString(d.getOctal(number)));
+		System.out.println(Integer.toString(d.getOctal()));
 
     } // end of main method
 
 } // end of App class
 
 class Octal {
+	private int octal = 0;
 
 	// converts decimal to octal
-	private static int Octal(int decimal) {
+	Octal(int decimal) {
 
 		// ensures decimal value is positive
 		int decimalPositive = decimal;
@@ -38,7 +39,6 @@ class Octal {
 	    int quotient = decimalPositive / 8;
 	    String octalStr = "";
 		String remainderStr = "";
-		int octal = 0;
 
 		if (decimal < 8 & decimal > -8) { // decimal and octal value would be the same 
 			octalStr = String.valueOf(decimal);
@@ -64,14 +64,12 @@ class Octal {
 		} // end of if/else statement
 
 		octal = Integer.parseInt(octalStr);
-		return octal;
 
 	} // end of Octal method
 	
 	// calls Octal method and returns converted value
-	public int getOctal(int decimal) {
+	public int getOctal() {
 
-		int octal = Octal(decimal);
 	    return octal;
 
 	} // end of getOctal method
