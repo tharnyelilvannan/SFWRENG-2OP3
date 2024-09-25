@@ -2,7 +2,7 @@ package question1;
 
 /**
  * Author: Tharny Elilvannan
- * Last Updated: September 24, 2024
+ * Last Updated: September 25, 2024
  * Purpose: Converts a decimal to an octal number. 
  */
 
@@ -35,6 +35,7 @@ class Octal {
 			decimalPositive = decimal * -1;
 		}
 
+		// octal value will be series of remainders when dividing each quotient by 8
 		int remainder = decimalPositive % 8;
 	    int quotient = decimalPositive / 8;
 	    String octalStr = "";
@@ -63,11 +64,12 @@ class Octal {
 			} // end of if statement
 		} // end of if/else statement
 
+		// convert string back to integer number
 		octal = Integer.parseInt(octalStr);
 
 	} // end of Octal method
 	
-	// calls Octal method and returns converted value
+	// returns converted octal value
 	public int getOctal() {
 
 	    return octal;
