@@ -13,10 +13,13 @@ import java.lang.Math;
 
 
 public class App {
+
     public static void main(String[] args) {
 
         Scanner userInput = new Scanner(System.in);
 	
+
+	// user inputs for a, b, c
 	System.out.print("Enter a: ");
 	Double a = userInput.nextDouble();
 
@@ -42,6 +45,7 @@ class Quadratic {
     private Double B;
     private Double C;
 
+    // constructor method 
     Quadratic(Double a, Double b, Double c) {
 
 	A = a;
@@ -54,6 +58,7 @@ class Quadratic {
     } // end of Quadratic method
 
 
+    // calculates discriminant to determine number of solutions
     private void discriminant() {
 
 	if (((B*B) - 4*A*C) > 0) {
@@ -79,6 +84,7 @@ class Quadratic {
 
 	
     
+    // calculates roots of number of solutions is 2
     private Double[] twoRoots() {
 
 	Double root1 = (-B + Math.sqrt((B*B) - (4 * A *C))) / (2 * A);
@@ -91,14 +97,18 @@ class Quadratic {
     } // end of twoRoots method
 	
 
-    private Double oneRoot() {
-	Double root1 = (-B / (2 * A));
 
-	return root1;
+    // calculates solution if number of solutions is 1
+    private Double oneRoot() {
+
+	Double root = (-B / (2 * A));
+
+	return root;
 
     } // end of oneRoot method
 
 
+    // number of solutions is 0
     private String noRoots() {
 	
 	String root = ", there are no real roots.";
@@ -108,6 +118,7 @@ class Quadratic {
     } // end of noRoots method
 
 	
+    // prints roots
     private void getRoots() {
 
 	if (solutions == 2) {
@@ -139,5 +150,4 @@ class Quadratic {
 
     } // end of getRoots method
     
-
 } // end of Quadratic class
