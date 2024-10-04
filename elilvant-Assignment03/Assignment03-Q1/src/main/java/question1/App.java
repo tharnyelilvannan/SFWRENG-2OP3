@@ -1,13 +1,16 @@
 package question1;
 
+
 /**
  * Author: Tharny Elilvannan
- * Last Updated: October 03, 2024
+ * Last Updated: October 04, 2024
  * Purpose: Outputs roots of a quadratic equation.
  */
 
+
 import java.util.Scanner;
-import java.lang.Math.sqrt;
+import java.lang.Math;
+
 
 public class App {
     public static void main(String[] args) {
@@ -24,14 +27,8 @@ public class App {
 	Double c = userInput.nextDouble();
 
 	Quadratic q = new Quadratic(a, b, c);
-	System.out.print("For a = ");
-	System.out.print(Double.toString(a));
-	System.out.print(", b = ");
-	System.out.print(Double.toString(b));
-	System.out.print(" and c = ");
-	System.out.print(Double.toString(c));
-	System.out.print(",");
-	System.out.println(Quadratic.roots());
+
+	userInput.close();
 
     } // end of main method
 
@@ -39,10 +36,11 @@ public class App {
 
 
 class Quadratic {
-    int solutions;
-    Double A;
-    Double B;
-    Double C;
+
+    private int solutions;
+    private Double A;
+    private Double B;
+    private Double C;
 
     Quadratic(Double a, Double b, Double c) {
 
@@ -51,6 +49,7 @@ class Quadratic {
 	C = c;
 	
 	discriminant();
+	getRoots();
 
     } // end of Quadratic method
 
@@ -80,43 +79,65 @@ class Quadratic {
 
 	
     
-    private String roots() {
+    private Double[] twoRoots() {
+
+	Double root1 = (-B + Math.sqrt((B*B) - (4 * A *C))) / (2 * A);
+	Double root2 = (-B - Math.sqrt((B*B) - (4 * A *C))) / (2 * A);
+		
+	Double[] roots = {root1, root2};
+	
+	return roots;
+
+    } // end of twoRoots method
+	
+
+    private Double oneRoot() {
+	Double root1 = (-B / (2 * A));
+
+	return root1;
+
+    } // end of oneRoot method
+
+
+    private String noRoots() {
+	
+	String root = ", there are no real roots.";
+
+	return root;
+
+    } // end of noRoots method
+
+	
+    private void getRoots() {
 
 	if (solutions == 2) {
 
-	    Double x1 = (-B + Math.sqrt((B*B) - (4 * A *C))) / (2 * A);
-	    Double x2 = (-B - Math.sqrt((B*B) - (4 * A *C))) / (2 * A);
-		
-	    String root1 = Double.toString(x1);
-	    String root2 = Double.toString(x2);
-	    String bothRoot = "the roots are " + root1 + " and " + root2 + ".";
+	    Double[] roots = twoRoots();
+	    
+	    System.out.println("For a=" + A + ", b=" + B + " and c=" + C + ", the roots are " + String.format("%.2f", roots[0]) + " and " + String.format("%.2f", roots[1]));    
 	
-	    return bothRoot;
-
 	}
 	else if (solutions == 1) {
 
-	    Double x = (-B / (2 * A));
-	    String root1 = Double.toString(x);
-	    String root = "the root is " + root1 + ".";
+	    Double root = oneRoot();
 
-	    return root;
+	    System.out.println("For a=" + A + ", b=" + B + " and c=" + C + ", the root is " + String.format("%.2f", root));
 
 	}
 	else if (solutions == 0) {
 
-	    String root = "there are no real roots.";
-
-	    return root;
+	    String root = noRoots();
+	
+	    System.out.println("For a=" + A + ", b=" + B + " and c=" + C + root);
 
 	}
 	else {
 
 	    System.out.println("Error.");
 
-	}
+	} // end of if/else statement
 
-    } // end of roots method
+    } // end of getRoots method
     
 
 } // end of Quadratic class
