@@ -19,19 +19,19 @@ public class App {
         Scanner userInput = new Scanner(System.in);
 	
 
-	// user inputs for a, b, c
-	System.out.print("Enter a: ");
-	Double a = userInput.nextDouble();
+		// user inputs for a, b, c
+		System.out.print("Enter a: ");
+		Double a = userInput.nextDouble();
 
-	System.out.print("Enter b: ");
-	Double b = userInput.nextDouble();
+		System.out.print("Enter b: ");
+		Double b = userInput.nextDouble();
 
-	System.out.print("Enter c: ");
-	Double c = userInput.nextDouble();
+		System.out.print("Enter c: ");
+		Double c = userInput.nextDouble();
 
-	Quadratic q = new Quadratic(a, b, c);
+		Quadratic q = new Quadratic(a, b, c);
 
-	userInput.close();
+		userInput.close();
 
     } // end of main method
 

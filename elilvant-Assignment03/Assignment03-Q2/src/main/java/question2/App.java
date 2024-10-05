@@ -12,7 +12,9 @@ public class App {
 
     public static void main(String[] args) {
 
-        System.out.println("Hello World!");
+        Scanner userInput = new Scanner(System.in);
+	
+	String number = userInput.nextLine();
 
     } // end of main method
 
