@@ -20,7 +20,8 @@ public class App {
 	String number = userInput.next();
 
 	PhoneNumber n = new PhoneNumber(number);
-	System.out.println(n.getNumber());
+
+	System.out.println("The phone number for " + number + " is "+ n.getNumber() + ".");
 	
 	userInput.close();
 
@@ -44,10 +45,16 @@ class PhoneNumber {
 	
 	    phoneNumber = phoneNumber + digit;
 
+	    if (counter == 2 || counter == 5) {
+		
+		phoneNumber = phoneNumber + "-";
+	
+	    } // end of if statement
+
 	    counter = counter + 1;
 	
 	} // end of while
-
+		
     } // end of PhoneNumber method
 
     
