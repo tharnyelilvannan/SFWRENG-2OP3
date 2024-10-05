@@ -29,10 +29,13 @@ public class App {
 
 } // end of App class
 
+
+
 class PhoneNumber {
 
     private String phoneNumber = "";
 
+    // constructor method makes new phone number
     PhoneNumber(String number) {
 
 	int counter = 0;
@@ -58,6 +61,7 @@ class PhoneNumber {
     } // end of PhoneNumber method
 
     
+    // converts each letter to a number
     private String alphaToNumerical(String digit) {
 
 	if ((digit.compareTo("A") == 0) || (digit.compareTo("B") == 0) || (digit.compareTo("C") == 0)) {
@@ -91,6 +95,7 @@ class PhoneNumber {
     } // end of alphaToNumerical method
 
 
+    // returns phone number
     public String getNumber() {
 
 	return phoneNumber;
