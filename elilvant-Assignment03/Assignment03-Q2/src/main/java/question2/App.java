@@ -17,9 +17,10 @@ public class App {
         Scanner userInput = new Scanner(System.in);
 	
 	System.out.print("Enter 10 digit phone number: ");
-	String number = userInput.nextLine();
+	String number = userInput.next();
 
 	PhoneNumber n = new PhoneNumber(number);
+	System.out.println(n.getNumber());
 	
 	userInput.close();
 
@@ -29,7 +30,7 @@ public class App {
 
 class PhoneNumber {
 
-    private String phoneNumber;
+    private String phoneNumber = "";
 
     PhoneNumber(String number) {
 
@@ -37,11 +38,11 @@ class PhoneNumber {
 
 	while (counter < 10) {
 	    
-	    String digit = number.charAt(counter);
+	    String digit = Character.toString(number.charAt(counter));
 
 	    digit = alphaToNumerical(digit);
 	
-	    phoneNumber = phoneNumber + digit;	
+	    phoneNumber = phoneNumber + digit;
 
 	    counter = counter + 1;
 	
@@ -52,28 +53,28 @@ class PhoneNumber {
     
     private String alphaToNumerical(String digit) {
 
-	if ((digit.compareTo("A") == 0) || (digit.compareTo("B") == 0) || (digit.compareTo("C") == 0) {
+	if ((digit.compareTo("A") == 0) || (digit.compareTo("B") == 0) || (digit.compareTo("C") == 0)) {
 	    return "2";
 	} 
-	else if ((digit.compareTo("D") == 0) || (digit.compareTo("E") == 0) || (digit.compareTo("F") == 0) {
+	else if ((digit.compareTo("D") == 0) || (digit.compareTo("E") == 0) || (digit.compareTo("F") == 0)) {
 	    return "3";
 	}
-	else if ((digit.compareTo("G") == 0) || (digit.compareTo("H") == 0) || (digit.compareTo("I") == 0) {
+	else if ((digit.compareTo("G") == 0) || (digit.compareTo("H") == 0) || (digit.compareTo("I") == 0)) {
 	    return "4";
 	}
-	else if ((digit.compareTo("J") == 0) || (digit.compareTo("K") == 0) || (digit.compareTo("L") == 0) {
+	else if ((digit.compareTo("J") == 0) || (digit.compareTo("K") == 0) || (digit.compareTo("L") == 0)) {
 	    return "5";
 	}
-	else if ((digit.compareTo("M") == 0) || (digit.compareTo("N") == 0) || (digit.compareTo("O") == 0) {
+	else if ((digit.compareTo("M") == 0) || (digit.compareTo("N") == 0) || (digit.compareTo("O") == 0)) {
 	    return "6";
 	}
-	else if ((digit.compareTo("P") == 0) || (digit.compareTo("Q") == 0) || (digit.compareTo("R") == 0) || (digit.compareTo("S") == 0) {
+	else if ((digit.compareTo("P") == 0) || (digit.compareTo("Q") == 0) || (digit.compareTo("R") == 0) || (digit.compareTo("S") == 0)) {
 	    return "7";
 	}
-	else if ((digit.compareTo("T") == 0) || (digit.compareTo("U") == 0) || (digit.compareTo("V") == 0) {
+	else if ((digit.compareTo("T") == 0) || (digit.compareTo("U") == 0) || (digit.compareTo("V") == 0)) {
 	    return "8";
 	}
-	else if ((digit.compareTo("W") == 0) || (digit.compareTo("X") == 0) || (digit.compareTo("Y") == 0) || (digit.compareTo("Z") == 0) {
+	else if ((digit.compareTo("W") == 0) || (digit.compareTo("X") == 0) || (digit.compareTo("Y") == 0) || (digit.compareTo("Z") == 0)) {
 	    return "9";
 	}
 	else {
