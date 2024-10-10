@@ -19,10 +19,10 @@ public class App {
 	int studentNumber = userInput.nextInt();
 
 	System.out.print("Enter your password: ");
-	String password = userInput.nextLine();
+	String password = userInput.next();
 
 	Student s = new Student(studentNumber, password, studentName);
-	s.logIn();
+	System.out.println(s.logIn());
 
 	userInput.close();
     }
@@ -36,14 +36,26 @@ class Student {
 
     Student(int num, String pass, String name) {
 
-	studentNumber = num;
-	password = pass;
-	studentName = name;
+	this.studentName = name;
+	this.password = pass;
+
+	String studentNum = Integer.toString(num);
+	
+	if (pass.length() == 9) {
+	    this.studentNumber = num;
+	}
+	else {
+	    throw new IllegalArgumentException("Student number must be 9 digits.");
+	} // end of if/else statement
+
+	System.out.println(this.studentNumber);
+	System.out.println(this.password);
+	System.out.println(this.studentName);
 
     } // end of Student method
 
 	
-    public void logIn() {	
+    public String logIn() {	
 
 	int tries = 0;
 
@@ -56,29 +68,27 @@ class Student {
 	    System.out.print("Enter your password: ");
 	    String guess = keyboard.nextLine();
 
-	    if (guess == password) {
+	    if ((guess.equals(password)) && (username.equals(studentName))) {
 		int num = getStudentNumber();
 		System.out.println(num);
-		break;
-	    }	
-	    else {
-		tries = tries + 1;
-	    } // end of if/else statement
+		return "Done.";
+	    } // end of if statement
+
+	    tries = tries + 1;
 
 	} // end of while	
 
-	if (tries == 3) {
-	    System.out.println("You are out of tries.");
-	}
 
 	keyboard.close();
+
+	return "You are out of tries.";
 
     } // end of logIn method
 
 
     private int getStudentNumber() {
 
-	return studentNumber;
+	return this.studentNumber;
 
     } // end of getStudentNumber method
 
