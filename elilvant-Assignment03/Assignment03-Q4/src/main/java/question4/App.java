@@ -24,7 +24,7 @@ public class App {
 class GuessingGame {
 
     Random random = new Random();
-    int randomNumber = random.nextInt(100);
+    private int randomNumber = random.nextInt(100);
 
     Scanner userInput = new Scanner(System.in);
 
