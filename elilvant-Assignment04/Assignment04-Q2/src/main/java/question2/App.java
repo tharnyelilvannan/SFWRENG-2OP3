@@ -2,7 +2,7 @@ package question2;
 
 /**
  * Author: Tharny Elilvannan
- * Last Updated: November 08, 2024
+ * Last Updated: November 07, 2024
  * Purpose: Calculates the average and median of a list of integers.
  */
 
@@ -25,12 +25,20 @@ class StatisticsCalculator {
 	int[] intArray;
 
 	StatisticsCalculator(int[] listOfInt) {
-		intArray = sortArray(listOfInt);
-		calculateSum();
+		try{
+			intArray = sortArray(listOfInt);
+			calculateSum();
+		} catch (IllegalArgumentException e) {
+			System.out.println("Invalid Input.");
+		}
 	} // end of StatisticsCalculator method
 
 	private void calculateSum() {
 		int i;
+
+		if (intArray.length == 0) {
+			throw new ArithmeticException("EmptyArray");
+		} // end of if
 
 		for (i =0; i < intArray.length; i++) {
 			sum = sum + intArray[i];
@@ -38,6 +46,11 @@ class StatisticsCalculator {
 	} // end of calculateSum method
 
 	public double calculateAverage() {
+
+		if (intArray.length == 0) {
+			throw new ArithmeticException("EmptyArray");
+		} // end of if
+
 		average = sum / (intArray.length);
 		return average;
 	} // end of calculateAverage method
@@ -48,6 +61,10 @@ class StatisticsCalculator {
 	} // end of sortArray method
  
 	public double calculateMedian() {
+
+		if (intArray.length == 0) {
+			throw new ArithmeticException("EmptyArray");
+		} // end of if
 
 		if ((intArray.length % 2) == 0) {
 			median = (intArray[(intArray.length)/2] + intArray[((intArray.length)/2)+1])/2;
@@ -61,12 +78,16 @@ class StatisticsCalculator {
 	} // end of calculateMedian method
 
 	public void updateArray(int[] newArray) {
-		intArray = sortArray(newArray);
-		calculateSum();
+		try {	
+			intArray = sortArray(newArray);
+			calculateSum();
+		} catch (IllegalArgumentException e) {
+			System.out.println("Invalid Input.");
+		}
 	} // end of updateArray method
 
 	public int[] getArray() {
 		return intArray;
-	}
+	} // end of getArray method
 
 } // end of StatisticsCalculator class
