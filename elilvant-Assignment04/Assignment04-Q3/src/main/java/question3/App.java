@@ -2,8 +2,8 @@ package question3;
 
 /**
  * Author: Tharny Elilvannan
- * Last Updated: November 07, 2024
- * Purpose: Processed strings.
+ * Last Updated: November 08, 2024
+ * Purpose: Processes strings.
  */
 
 public class App {
@@ -24,17 +24,17 @@ class StringCleaner {
         strArray = removeSpaces(strArray);
     } // end of StringCleaner method
 
-    private String removePunctuation(String str) {
+    protected String removePunctuation(String str) {
         str = str.replaceAll("[':.,|///;?!@#$%^&*()~]", "");
         return str;
     } // end of remove method
 
-    private String convertToLowercase(String str) {
+    protected String convertToLowercase(String str) {
         str = str.toLowerCase();
         return str;
     } // end of convert method
 
-    private String removeSpaces(String str) {
+    protected String removeSpaces(String str) {
         str = str.replaceAll("\s\s+", "\s");
         str = str.replaceAll("\s{1,}$", "");
         str = str.replaceAll("^\s{1,}", "");
