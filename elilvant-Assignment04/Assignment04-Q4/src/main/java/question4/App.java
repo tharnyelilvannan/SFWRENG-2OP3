@@ -9,24 +9,27 @@ import java.util.*;
  */
 
 public class App {
+
     public static void main(String[] args) {
         
-        String myString = "hello!   my name name is Tharny?";
+        String myString = "hello    my name is Tharny?";
         StringAnalyzer c = new StringAnalyzer(myString);
         System.out.println(c.getWordFrequency()); 
+        System.out.println(c.getLongestWord());
+        System.out.println(c.getPalindrome());
            
     }
 }
 
 class StringCleaner {
 
-    String strArray;
+    String newStr;
     
     StringCleaner(String str) {
 
-        strArray = removePunctuation(str);
-        strArray = convertToLowercase(strArray);
-        strArray = removeSpaces(strArray);
+        newStr = removePunctuation(str);
+        newStr = convertToLowercase(newStr);
+        newStr = removeSpaces(newStr);
 
     } // end of StringCleaner method
 
@@ -56,7 +59,7 @@ class StringCleaner {
 
     public String getString() {
 
-        return strArray;
+        return newStr;
 
     } // end of getString method
 
@@ -66,17 +69,23 @@ class StringAnalyzer extends StringCleaner {
 
     Map<String, Integer> frequency = new HashMap<>();
     String[] individualWords;
+    int longest = 0;
+    String longestWord = "";
+    String originalString;
+    boolean isPalindrome;
     
     StringAnalyzer(String str) {
-
         super(str);
+        originalString = str;
         wordFrequency();
+        longestWord();
+        palindrome();
 
     } // end of StringAnalyzer method
 
     protected final void wordFrequency() {
 
-        individualWords = strArray.split("\s");
+        individualWords = newStr.split("\s");
 
         int i;
         int y;
@@ -110,5 +119,118 @@ class StringAnalyzer extends StringCleaner {
         return frequency;
 
     } // end of getWordFrequency method
+
+    protected final void longestWord() {
+
+        try {
+
+            if (originalString.isEmpty()) {
+
+                throw new Exception ("Empty String");
+
+            }
+
+            int i;
+
+            for (i = 0; i < individualWords.length; i++) {
+
+                if (individualWords[i].length() > longest) {
+
+                    longest = individualWords[i].length();
+                    longestWord = individualWords[i];
+
+                } // end of if
+
+            } // end of for loop
+
+        } catch (Exception e) {
+
+            System.out.println(e.getMessage());
+
+        } // end of try/catch statement
+
+    } // end of longestWord method
+
+    public String getLongestWord() {
+
+        return longestWord;
+
+    } // end of getLongestWord method
+
+    protected final void palindrome() {
+        
+        try {
+
+            int lengthStr = individualWords.length;
+            int i;
+            int loops = 1;
+
+            if (lengthStr == 0) {
+
+                throw new ArithmeticException("Empty String.");
+
+            } // end of if
+
+            if (lengthStr % 2 == 0) {
+
+                for (i = 0; i <= (lengthStr/2); i++) {
+
+                    if (individualWords[i].equals(individualWords[(lengthStr - loops)])) {
+
+                        loops++;
+
+                    }
+                    else {
+
+                        isPalindrome = false;
+                        break;
+            
+                    }
+
+                    isPalindrome = true;
+
+                } // end of for loop
+
+            }
+            else if (lengthStr % 2 != 0) {
+
+                for (i = 0; i < (lengthStr/2); i++) {
+
+                    if (individualWords[i].equals(individualWords[(lengthStr - loops)])) {
+
+                        loops++;
+
+                    }
+                    else {
+
+                        isPalindrome = false;
+                        break;
+            
+                    }
+
+                    isPalindrome = true;
+
+                } // end of for loop
+
+            }
+            else {
+
+                throw new Exception("Error.");
+
+            } // end of if/else statement
+
+        } catch (Exception e) {
+
+            System.out.println(e.getMessage());
+
+        } // end of try/catch statement
+
+    } // end of palindrome method
+
+    public boolean getPalindrome() {
+
+        return isPalindrome;
+
+    } // end of getPalindrome method
 
 } // end of StringAnalyzer class
