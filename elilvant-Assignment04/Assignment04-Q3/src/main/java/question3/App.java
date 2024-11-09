@@ -13,8 +13,9 @@ public class App {
         StringCleaner c = new StringCleaner(myString);
         System.out.println(c.getString());
 
-    }
-}
+    } // end of main method
+
+} // end of App class
 
 class StringCleaner {
 
@@ -57,5 +58,5 @@ class StringCleaner {
         return strArray;
 
     } // end of getString method
-    
+
 } // end of StringCleaner class

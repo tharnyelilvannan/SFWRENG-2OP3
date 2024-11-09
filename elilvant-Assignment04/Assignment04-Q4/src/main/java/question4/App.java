@@ -18,8 +18,9 @@ public class App {
         System.out.println(c.getLongestWord());
         System.out.println(c.getPalindrome());
            
-    }
-}
+    } // end of main method
+
+} // end of App class
 
 class StringCleaner {
 
