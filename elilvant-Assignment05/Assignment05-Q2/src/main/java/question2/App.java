@@ -6,16 +6,19 @@ package question2;
  * Purpose: Extends car class.
  */
 
+import java.util.InputMismatchException;
+import java.util.Scanner;
+
 public class App {
     public static void main(String[] args) {
 
-        ElectricCar e = new ElectricCar("Tesla", "Model X", 2021, 400.0, 220.3);
-        GasolineCar g = new GasolineCar("Honda", "Civic", 2013, 40.0, 13.1);
+        ElectricCar e = new ElectricCar("Tesla", "Model X", 2021, 400.0);
+        GasolineCar g = new GasolineCar("Honda", "Civic", 2013, 40.0);
 
-        System.out.println(e.getFuelEfficiency());
-        System.out.println(e.getRange());
-        System.out.println(g.getFuelEfficiency());
-        System.out.println(g.getRange());
+        System.out.println("Electric Car Fuel Efficiency: " + e.getFuelEfficiency());
+        System.out.println("Electric Car Range on Full Charge: " + e.getRange());
+        System.out.println("Gasoline Car Fuel Efficiency: " + g.getFuelEfficiency());
+        System.out.println("Gasoline Car Range on Full Tank: " + g.getRange());
 
     } // end of main method
 
@@ -24,9 +27,9 @@ public class App {
 abstract class Car {
 
     // instance variables
-    private String make;
-    private String model;
-    private int year;
+    final private String make;
+    final private String model;
+    final private int year;
 
     Car(String make, String model, int year) {
 
@@ -36,19 +39,19 @@ abstract class Car {
         
     } // end of Car method
 
-    String getMake() {
+    final String getMake() {
 
         return this.make;
 
     } // end of getMake method
 
-    String getModel() {
+    final String getModel() {
 
         return this.model;
 
     } // end of getModel method
 
-    int getYear() {
+    final int getYear() {
 
         return this.year;
 
@@ -70,21 +73,39 @@ class GasolineCar extends Car {
     private double range = 0.0;
     private double fuelTankCapacity = 0.0;
     private double milesPerGallon = 0.0;
+    Scanner input = new Scanner(System.in);
 
-    GasolineCar(String make, String model, int year, double fuelTankCapacity, double milesPerGallon) {
+    GasolineCar(String make, String model, int year, double fuelTankCapacity) {
 
         super(make, model, year);
         this.fuelTankCapacity = fuelTankCapacity;
-        this.milesPerGallon = milesPerGallon;
         fuelEfficiency();
+        this.milesPerGallon = getFuelEfficiency();
         range();
-
         
     } // end of GasolineCar class
 
     protected void fuelEfficiency() {
 
-        this.efficiency = 129;
+        try {
+
+            System.out.println("Input distance travelled in miles: ");
+            double distance = input.nextDouble();
+
+            System.out.println("Input fuel used in Gallons: ");
+            double fuelUsed = input.nextDouble();
+        
+            this.efficiency = distance / fuelUsed;
+
+        } catch (InputMismatchException m) {
+
+            System.out.println("Input must be a number.");
+
+        } catch (Exception e) {
+
+            System.out.println(e.getMessage());
+            
+        } // end of try/catch statement
 
     } // end of fuelEfficiency method
 
@@ -96,7 +117,7 @@ class GasolineCar extends Car {
 
     protected void range() {
 
-        this.range = 133;
+        this.range = this.efficiency * this.fuelTankCapacity;
 
     } // end of range method
 
@@ -126,20 +147,39 @@ class ElectricCar extends Car {
     private double range = 0.0;
     private double batteryCapacity = 0.0;
     private double milesPerKwh = 0.0;
+    Scanner input = new Scanner(System.in);
 
-    public ElectricCar(String make, String model, int year, double batteryCapacity, double milesPerKwh) {
+    public ElectricCar(String make, String model, int year, double batteryCapacity) {
 
         super(make, model, year);
         this.batteryCapacity = batteryCapacity;
-        this.milesPerKwh = milesPerKwh;
         fuelEfficiency();
+        this.milesPerKwh = getFuelEfficiency();
         range();
 
     } // end of ElectricCar method
 
     protected void fuelEfficiency() {
 
-        this.efficiency = 129;
+        try {
+
+            System.out.println("Input distance travelled in miles: ");
+            double distance = input.nextDouble();
+
+            System.out.println("Input battery used in kWh: ");
+            double batteryUsed = input.nextDouble();
+        
+            this.efficiency = distance / batteryUsed;
+
+        } catch (InputMismatchException m) {
+
+            System.out.println("Input must be a number.");
+
+        } catch (Exception e) {
+
+            System.out.println(e.getMessage());
+
+        } // end of try/catch statement
 
     } // end of fuelEfficiency method
 
@@ -151,7 +191,7 @@ class ElectricCar extends Car {
 
     protected void range() {
 
-        this.range = 133;
+        this.range = this.efficiency * this.batteryCapacity;
 
     } // end of range method
 
