@@ -12,15 +12,47 @@ package question4;
  public class App {
      public static void main(String[] args) {
  
-         ElectricCar e = new ElectricCar("Tesla", "Model X", 2021, 400.0);
-         GasolineCar g = new GasolineCar("Honda", "Civic", 2013, 40.0);
- 
-         System.out.println("Electric Car Fuel Efficiency: " + e.getFuelEfficiency());
-         System.out.println("Electric Car Range on Full Charge: " + e.getRange());
-         System.out.println("Gasoline Car Fuel Efficiency: " + g.getFuelEfficiency());
-         System.out.println("Gasoline Car Range on Full Tank: " + g.getRange());
- 
+        ElectricCar e = new ElectricCar("Tesla", "Model X", 2021, 400.0);
+        ElectricCar l = new ElectricCar("Kia", "Niro", 2019, 400.0);
+        ElectricCar c = new ElectricCar("Toyota", "Prius", 2018, 400.0);
+        GasolineCar g = new GasolineCar("Honda", "Civic", 2013, 40.0);
+        GasolineCar a = new GasolineCar("Toyota", "Corolla", 2020, 40.0);
+        GasolineCar s = new GasolineCar("Honda", "Accord", 2024, 40.0);
+
+        Car[] cars = {e, l, c, g, a, s};
+
+        printEfficiencyAndRange(cars);
+
+        System.out.println(averageRange(cars));
+        
      } // end of main method
+
+     private static void printEfficiencyAndRange(Car[] cars) {
+
+        for (int i = 0; i < cars.length; i++) {
+
+            System.out.println(cars[i].getMake() + " " + cars[i].getModel() + " " + cars[i].getYear() + " Fuel Efficiency: " + cars[i].getFuelEfficiency());
+            System.out.println(cars[i].getMake() + " " + cars[i].getModel() + " " + cars[i].getYear() + " Range: " + cars[i].getRange());
+
+        } // end of for loop
+
+     } // end of printEfficiencyAndRange class
+
+     private static double averageRange(Car[] cars) {
+
+        double total = 0;
+
+        for (int i = 0; i < cars.length; i++) {
+
+            total = total + cars[i].getRange();
+
+        } // end of for loop
+
+        double average = total / cars.length;
+
+        return average;
+
+     } // end of averageRange method
  
  } // end of App class
  
