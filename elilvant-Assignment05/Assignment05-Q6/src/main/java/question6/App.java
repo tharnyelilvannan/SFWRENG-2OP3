@@ -25,7 +25,7 @@ package question6;
 
         printEfficiencyAndRange(cars);
 
-        System.out.println("Average Range " + averageRange(cars));
+        System.out.println("\nAverage Range: " + averageRange(cars));
         
      } // end of main method
 
