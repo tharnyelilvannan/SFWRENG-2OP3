@@ -174,7 +174,7 @@ class ImprovedBoard extends Board {
  
              result = true;
  
-         } // end of if/else if statement
+         } // end of if/else-if statement
  
         return result;
  

@@ -112,7 +112,6 @@ class HumanPlayer extends Player {
 
         return position;
 
-
     } // end of position method
 
 } // end of HumanPlayer class
