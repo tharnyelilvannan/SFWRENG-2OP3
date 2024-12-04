@@ -1,7 +1,7 @@
-project1\HumanPlayer.class
-project1\Board.class
-project1\Game.class
-project1\Player.class
+main\java\project1\ComputerPlayer.class
+main\java\project1\HumanPlayer.class
+main\java\project1\Board.class
+main\java\project1\Game.class
+main\java\project1\Player.class
+main\java\project1\ImprovedBoard.class
 project1\App.class
-project1\ImprovedBoard.class
-project1\ComputerPlayer.class
