@@ -34,7 +34,7 @@ public class Game {
 
    } // end of Game method
 
-    Game(int selection, int N, int M) throws Exception{
+    public Game(int selection, int N, int M) throws Exception{
 
        if (selection == 1) {
 
@@ -221,7 +221,7 @@ public class Game {
 
                        try {
 
-                           int[] position = player1.position();
+                           int[] position = player1.position(N);
 
                            board.checkBoard(position[0], position[1]);
 
@@ -229,7 +229,7 @@ public class Game {
 
                            board.printBoard();
 
-                           win = board.checkWin(player1.getMarker());
+                           win = board.checkWin(player1.getMarker(), N, M);
                            tie = board.checkTie();
 
                            if (win) {
@@ -259,7 +259,7 @@ public class Game {
 
                        try {
 
-                           int[] position = player1.position();
+                           int[] position = player1.position(N);
 
                            board.checkBoard(position[0], position[1]);
 
@@ -267,7 +267,7 @@ public class Game {
 
                            board.printBoard();
 
-                           win = board.checkWin(player2.getMarker());
+                           win = board.checkWin(player2.getMarker(), N, M);
                            tie = board.checkTie();
 
                            if (win) {
@@ -459,7 +459,7 @@ public class Game {
 
        Scanner input = new Scanner(System.in);
 
-       ImprovedBoard board = new ImprovedBoard();
+       ImprovedBoard board = new ImprovedBoard(N);
 
        Player player1 = new HumanPlayer("X", "Player 1");
        Player player2 = new ComputerPlayer("O", "Player 2");
@@ -485,7 +485,7 @@ public class Game {
 
                        try {
 
-                           int[] position = player1.position();
+                           int[] position = player1.position(N);
 
                            board.checkBoard(position[0], position[1]);
 
@@ -493,7 +493,7 @@ public class Game {
 
                            board.printBoard();
 
-                           win = board.checkWin(player1.getMarker());
+                           win = board.checkWin(player1.getMarker(), N, M);
                            tie = board.checkTie();
 
                            if (win) {
@@ -518,11 +518,11 @@ public class Game {
                    }
                    else if (currentPlayer == 2) {
 
-                       //System.out.println("\nComputer's Turn\n");
+                       System.out.println("\nComputer's Turn\n");
 
                        try {
 
-                           int[] position = player2.position();
+                           int[] position = player2.position(N);
 
                            board.checkBoard(position[0], position[1]);
 
@@ -530,7 +530,7 @@ public class Game {
 
                            board.printBoard();
 
-                           win = board.checkWin(player2.getMarker());
+                           win = board.checkWin(player2.getMarker(), N, M);
                            tie = board.checkTie();
 
                            if (win) {
@@ -735,7 +735,7 @@ public class Game {
 
        Scanner input = new Scanner(System.in);
 
-       ImprovedBoard board = new ImprovedBoard();
+       ImprovedBoard board = new ImprovedBoard(N);
 
        Player player1 = new ComputerPlayer("X", "Player 1");
        Player player2 = new ComputerPlayer("O", "Player 2");
@@ -763,7 +763,7 @@ public class Game {
 
                            try {
 
-                               int[] position = player1.position();
+                               int[] position = player1.position(N);
 
                                board.checkBoard(position[0], position[1]);
 
@@ -771,7 +771,7 @@ public class Game {
 
                                board.printBoard();
 
-                               win = board.checkWin(player1.getMarker());
+                               win = board.checkWin(player1.getMarker(), N, M);
                                tie = board.checkTie();
 
                                valid = true;
@@ -808,7 +808,7 @@ public class Game {
 
                            try {
 
-                               int[] position = player2.position();
+                               int[] position = player2.position(N);
 
                                board.checkBoard(position[0], position[1]);
    
@@ -816,7 +816,7 @@ public class Game {
 
                                board.printBoard();
 
-                               win = board.checkWin(player2.getMarker());
+                               win = board.checkWin(player2.getMarker(), N, M);
                                tie = board.checkTie();
 
                                valid = true;
@@ -846,7 +846,7 @@ public class Game {
                    } 
                    else {
 
-                       throw new Exception("Invalid Player.");
+                        throw new Exception("Invalid Player.");
 
                    } // end of if/else statement
 

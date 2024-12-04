@@ -6,9 +6,8 @@ package main.java.project2;
  * Purpose: Tic Tac Toe Player class.
  */
 
-import java.util.Scanner;
-import java.util.Arrays;
 import java.util.Random;
+import java.util.Scanner;
 
 public abstract class Player {
  
@@ -36,7 +35,10 @@ public abstract class Player {
 
     abstract int[] position() throws Exception;
 
+    abstract int[] position(int N) throws Exception;
+
 } // end of Player class
+
 
 class HumanPlayer extends Player {
  
@@ -80,7 +82,41 @@ class HumanPlayer extends Player {
 
     } // end of row method
 
+    int[] position(int N) throws Exception {
+
+        System.out.println("Row: ");
+        int row = input.nextInt();
+
+        // assume user will enter rows as 1, 2, or 3
+        row = row - 1; 
+
+        if (row >= N) {
+
+            throw new Exception("Row value must be between 1 and " + N + ".");
+
+        } // end of if statement
+
+        System.out.println("Column: ");
+        int col = input.nextInt();
+
+        // assume user will enter rows as 1, 2, or 3
+        row = col - 1; 
+
+        if (col >= N) {
+
+            throw new Exception("Column value must be between 1 and " + N + ".");
+
+        } // end of if statement
+
+        int[] position = {row, col};
+
+        return position;
+
+
+    } // end of position method
+
 } // end of HumanPlayer class
+
 
 class ComputerPlayer extends Player {
  
@@ -96,6 +132,17 @@ class ComputerPlayer extends Player {
 
         int row = random.nextInt(3);
         int col = random.nextInt(3);
+
+        int[] position = {row, col};
+
+        return position;
+
+    } // end of position method
+
+    int[] position(int N) throws Exception {
+
+        int row = random.nextInt(N);
+        int col = random.nextInt(N);
 
         int[] position = {row, col};
 

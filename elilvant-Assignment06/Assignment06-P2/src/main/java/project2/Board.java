@@ -182,7 +182,24 @@ class ImprovedBoard extends Board {
 
     public boolean checkWin(String marker, int N, int M) {
 
-        return true;
+        boolean result = false;
+        int numInRow = 0;
+        
+        for (int i = 0; i < N; i++) {
+
+            for (int j = 0; j < N; j++) {
+
+                if (board[i][j] == marker) {
+
+                    result = true;
+
+                }
+
+            } // end of for loop
+
+        } // end of for loop
+
+        return result;
 
     } // end of checkWin method
  

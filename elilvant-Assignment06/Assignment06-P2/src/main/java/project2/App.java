@@ -26,10 +26,28 @@ public static void main(String[] args) {
 
             int humanOrComputer = input.nextInt();
 
+            System.out.println("Would you like to play the regular 3x3 game or a different size?\nPress 1 for a different size.");
+            int regularOrDifferentSize = input.nextInt();
+
             try {
 
-                new Game(humanOrComputer);
-                valid = true;
+                    if (regularOrDifferentSize == 1) {
+
+                        System.out.println("What do you want the grid size to be?\n");
+                        int gridSize = input.nextInt();
+
+                        System.out.println("What do you want the winning number to be?");
+                        int winningNumber = input.nextInt();
+
+                        new Game(humanOrComputer, gridSize, winningNumber);
+
+                    }
+                    else {
+
+                        new Game(humanOrComputer);
+                        valid = true;
+
+                    } // end of if/else statement
 
             }
             catch (Exception t) {
