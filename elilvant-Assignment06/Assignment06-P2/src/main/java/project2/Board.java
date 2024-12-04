@@ -10,7 +10,7 @@ import java.util.Arrays;
 
 public class Board {
  
-    String[][] board;
+    private String[][] board;
 
     Board() {
 

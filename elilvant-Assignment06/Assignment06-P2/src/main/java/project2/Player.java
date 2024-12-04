@@ -33,9 +33,9 @@ public abstract class Player {
 
     } // end of getMarker method
 
-    abstract int[] position() throws Exception;
+    abstract int[] getPosition() throws Exception;
 
-    abstract int[] position(int N) throws Exception;
+    abstract int[] getPosition(int N) throws Exception;
 
 } // end of Player class
 
@@ -50,7 +50,7 @@ class HumanPlayer extends Player {
 
     } // end of HumanPlayer method
 
-    int[] position() throws Exception {
+    int[] getPosition() throws Exception {
 
         System.out.println("Row: ");
         int row = input.nextInt();
@@ -76,13 +76,13 @@ class HumanPlayer extends Player {
 
         } // end of if statement
 
-        int[] position = {row, col};
+        int[] getPosition = {row, col};
 
-        return position;
+        return getPosition;
 
     } // end of row method
 
-    int[] position(int N) throws Exception {
+    int[] getPosition(int N) throws Exception {
 
         System.out.println("Row: ");
         int row = input.nextInt();
@@ -108,11 +108,11 @@ class HumanPlayer extends Player {
 
         } // end of if statement
 
-        int[] position = {row, col};
+        int[] getPosition = {row, col};
 
-        return position;
+        return getPosition;
 
-    } // end of position method
+    } // end of getPosition method
 
 } // end of HumanPlayer class
 
@@ -127,26 +127,26 @@ class ComputerPlayer extends Player {
 
     } // end of ComputerPlayer method
 
-    int[] position() throws Exception {
+    int[] getPosition() throws Exception {
 
         int row = random.nextInt(3);
         int col = random.nextInt(3);
 
-        int[] position = {row, col};
+        int[] getPosition = {row, col};
 
-        return position;
+        return getPosition;
 
-    } // end of position method
+    } // end of getPosition method
 
-    int[] position(int N) throws Exception {
+    int[] getPosition(int N) throws Exception {
 
         int row = random.nextInt(N);
         int col = random.nextInt(N);
 
-        int[] position = {row, col};
+        int[] getPosition = {row, col};
 
-        return position;
+        return getPosition;
 
-    } // end of position method
+    } // end of getPosition method
 
 } // end of ComputerPlayer class
